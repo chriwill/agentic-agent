@@ -24,3 +24,41 @@ Use a framework like:
 pip install langchain openai requests
 ```
 
+---
+
+### 3. **Create a Tool to Interact with Instana APIs**
+You'll need to create a wrapper around the Instana API that allows the LLM to query data. For example:
+
+```python
+import os
+import requests
+
+class InstanaAPITool:
+    def __init__(self, api_key):
+        self.api_key = api_key
+        self.base_url = "https://api	instana.com/"  # Replace with actual Instana API endpoint
+        
+    def get_metrics(self, metric_name, start_time, end_time):
+        """
+        Fetch metrics from Instana.
+        """
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json"
+        }
+        
+        params = {
+            "metricName": metric_name,
+            "startTime": start_time,
+            "endTime": end_time
+        }
+        
+        response = requests.get(
+            f"{self.base_url}/metrics",
+            headers=headers,
+            params=params
+        )
+        
+        return response.json()
+```
+
