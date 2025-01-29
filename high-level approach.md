@@ -88,3 +88,14 @@ agent = initialize_agent(
 )
 ```
 
+---
+
+### 5. **Define a Use Case**
+For example, you might want to ask the agent:
+- "What is the average CPU usage of my application over the last hour?"
+- "Analyze the performance trends in the last week and provide recommendations."
+- "Alert me if the memory usage exceeds 80%."
+
+The agent can use its LLM capabilities to understand the query, interact with the Instana API, process the data, and return a 
+human-readable response.
+
