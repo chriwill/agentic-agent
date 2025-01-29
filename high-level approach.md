@@ -99,3 +99,27 @@ For example, you might want to ask the agent:
 The agent can use its LLM capabilities to understand the query, interact with the Instana API, process the data, and return a 
 human-readable response.
 
+---
+
+### 6. **Add Memory (Optional)**
+For more advanced agents, you can add memory to retain context across interactions:
+```python
+from langchain.memory import ConversationBufferMemory
+
+memory = ConversationBufferMemory()
+agent = initialize_agent(
+    tools=tools,
+    llm=llm,
+    memory=memory,
+    verbose=True
+)
+```
+
+---
+
+### 7. **Run the Agent**
+You can now interact with your agent:
+```python
+response = agent.run("What is the current CPU usage of my application?")
+print(response)
+```
