@@ -1,4 +1,4 @@
-# agentic-agent
+# InstaAgent
 
 This project focuses on developing an advanced, AI-driven solution that integrates an agentic language model (LLM) with Instana APIs to 
 automate and enhance application performance monitoring. By leveraging natural language processing (NLP) capabilities and reinforcement 
