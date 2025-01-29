@@ -62,3 +62,29 @@ class InstanaAPITool:
         return response.json()
 ```
 
+---
+
+### 4. **Create the Agent**
+Using a framework like LangChain, you can create an agent that combines LLM and Instana API tools.
+
+```python
+from langchain.agents import initialize_agent
+from langchain.chat_models import ChatOpenAI
+
+# Initialize the LLM (e.g., GPT-4)
+llm = ChatOpenAI(temperature=0.3)
+
+# Create a list of available tools
+tools = [
+    InstanaAPITool(api_key="your_instana_api_key"),
+    # Add more tools as needed
+]
+
+# Initialize the agent
+agent = initialize_agent(
+    tools=tools,
+    llm=llm,
+    verbose=True
+)
+```
+
